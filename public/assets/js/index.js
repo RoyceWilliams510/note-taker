@@ -17,6 +17,7 @@ var getNotes = function() {
 
 // A function for saving a note to the db
 var saveNote = function(note) {
+  console.log(note);
   return $.ajax({
     url: "/api/notes",
     data: note,
@@ -26,9 +27,11 @@ var saveNote = function(note) {
 
 // A function for deleting a note from the db
 var deleteNote = function(id) {
+  console.log(id)
   return $.ajax({
-    url: "api/notes/" + id,
-    method: "DELETE"
+    url: "api/delete/notes",
+    method: "DELETE",
+    data: {index:id}
   });
 };
 
@@ -53,9 +56,9 @@ var renderActiveNote = function() {
 var handleNoteSave = function() {
   var newNote = {
     title: $noteTitle.val(),
-    text: $noteText.val()
+    text: $noteText.val(),
+    id: 0
   };
-
   saveNote(newNote).then(function(data) {
     getAndRenderNotes();
     renderActiveNote();
@@ -115,7 +118,7 @@ var renderNoteList = function(notes) {
     var $li = $("<li class='list-group-item'>").data(note);
     var $span = $("<span>").text(note.title);
     var $delBtn = $(
-      "<i class='fas fa-trash-alt float-right text-danger delete-note'>"
+      "<i class='fas fa-trash-alt float-right text-danger delete-note' index ='"+notes[i].id +"'>"
     );
 
     $li.append($span, $delBtn);
@@ -141,3 +144,4 @@ $noteText.on("keyup", handleRenderSaveBtn);
 
 // Gets and renders the initial list of notes
 getAndRenderNotes();
+
