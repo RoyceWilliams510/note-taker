@@ -1,76 +1,44 @@
-# Unit 11 Express Homework: Note Taker
+# Note-Taker
 
 ## Description
 
-Create an application that can be used to write, save, and delete notes. This application will use an express backend and save and retrieve note data from a JSON file.
+This application was created so user can store notes, review notes and delete their notes all with the power of nodejs and express.
 
-* The application frontend has already been created, it's your job to build the backend and connect the two.
 
-* The following HTML routes should be created:
-
-  * GET `/notes` - Should return the `notes.html` file.
-
-  * GET `*` - Should return the `index.html` file
-
-* The application should have a `db.json` file on the backend that will be used to store and retrieve notes using the `fs` module.
-
-* The following API routes should be created:
-
-  * GET `/api/notes` - Should read the `db.json` file and return all saved notes as JSON.
-
-  * POST `/api/notes` - Should recieve a new note to save on the request body, add it to the `db.json` file, and then return the new note to the client.
-
-  * DELETE `/api/notes/:id` - Should recieve a query paramter containing the id of a note to delete. This means you'll need to find a way to give each note a unique `id` when it's saved. In order to delete a note, you'll need to read all notes from the `db.json` file, remove the note with the given `id` property, and then rewrite the notes to the `db.json` file.
+## Installation
+To run the application the first step is to clone the repository from github and then make sure that you have nodejs installed on your local device, the link to the documentation and download link of nodejs is [here](https://nodejs.org/en/download/). After having nodejs installed and this repository is downloaded down to your local device, then you will want to navigate towards the directory using the command line and run this line of code 
+```bash
+npm install 
+```
+This bash command will automatically install all of the node packages that are essential in this program and will then make the application runnable. Since this application strictly uses node and javascript (outside of the generated website) there is no website for the deployed application and to actually use the application, you will have to run the application through the command line and the way you do this is by running this command line in terminal/bash 
+```bash
+node app.js
+```
 
 ## User Story
-
+```
 AS A user, I want to be able to write and save notes
 
 I WANT to be able to delete notes I've written before
 
 SO THAT I can organize my thoughts and keep track of tasks I need to complete
+```
 
-## Business Context
+## Review
+You can use the final application by going to the website from the badge below.
 
-For users that need to keep track of a lot of information, it's easy to forget or be unable to recall something important. Being able to take persistent notes allows users to have written information available when needed.
+[![Website naereen.github.io](https://img.shields.io/website-up-down-green-red/https/naereen.github.io.svg)](https://polar-tundra-02660.herokuapp.com/)
 
-## Acceptance Criteria
+If you would like to view a video demo of the application being used then click [here](https://drive.google.com/file/d/1oAfgQgu3gVI8mtzGz7pasAu2q8qCihu7/view?usp=sharing)
 
-Application should allow users to create and save notes.
+## Acknowledgments
+* [Stack Overflow Help](https://stackoverflow.com/questions/26269211/why-is-fs-readfile-returning-a-buffer)
 
-Application should allow users to view previously saved notes.
 
-Application should allow users to delete previously saved notes.
+## Built with 
+* [Node](https://nodejs.org/en/download/)
+* [express](https://www.npmjs.com/package/express)
+* [Fs](https://www.npmjs.com/package/fs)
 
-- - -
-
-## Commit Early and Often
-
-One of the most important skills to master as a web developer is version control. Building the habit of committing via Git is important for two reasons:
-
-* Your commit history is a signal to employers that you are actively working on projects and learning new skills.
-
-* Your commit history allows you to revert your codebase in the event that you need to return to a previous state.
-
-Follow these guidelines for committing:
-
-* Make single-purpose commits for related changes to ensure a clean, manageable history. If you are fixing two issues, make two commits.
-
-* Write descriptive, meaningful commit messages so that you and anyone else looking at your repository can easily understand its history.
-
-* Don't commit half-done work, for the sake of your collaborators (and your future self!).
-
-* Test your application before you commit to ensure functionality at every step in the development process.
-
-We would like you to have well over 200 commits by graduation, so commit early and often!
-
-## Submission on BCS
-
-You are required to submit the following:
-
-* The URL of the deployed application
-
-* The URL of the GitHub repository
-
-- - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
